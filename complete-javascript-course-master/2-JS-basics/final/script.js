@@ -277,7 +277,7 @@ switch (true) {
 var height;
 
 height = 23;
-
+//0 일 경우에도 if문에 false로 인식된다.
 if (height || height === 0) {
     console.log('Variable is defined');
 } else {
@@ -285,11 +285,15 @@ if (height || height === 0) {
 }
 
 // Equality operators
-if (height === '23') {
+// ==과 ===의 차이
+
+if (height === '23') { // ==를 쓸경우에는 타입과 관계없이 비교한다.
     console.log('The == operator does type coercion!');
 }
 */
 
+// 23=='23'은  True
+// 23 === '23' 은 False
 
 
 /*****************************
