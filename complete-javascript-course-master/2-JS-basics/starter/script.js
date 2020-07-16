@@ -174,3 +174,111 @@ GOOD LUCK 😀
 //     console.log(firstName +' is a man.');
 
 // }
+
+
+/*****************************
+* CODING CHALLENGE 2
+*/
+
+/*
+John and Mike both play basketball in different teams. In the latest 3 games, John's team scored 89, 120 and 103 points, 
+while Mike's team scored 116, 94 and 123 points.
+
+1. Calculate the average score for each team
+2. Decide which teams wins in average (highest average score), and print the winner to the console. Also include the average score in the output.
+3. Then change the scores to show different winners. Don't forget to take into account there might be a draw (the same average score)
+
+4. EXTRA: Mary also plays basketball, and her team scored 97, 134 and 105 points. Like before,
+ log the average winner to the console. 
+HINT: you will need the && operator to take the decision. If you can't solve this one, just watch the solution, it's no problem :)
+5. Like before, change the scores to generate different winners, keeping in mind there might be draws.
+
+GOOD LUCK 😀
+*/
+var John,Mike,Mary;
+John = (89+120+103)/3;
+Mike = (116+94+123)/3;
+
+var winner,winnerAvgScore;
+if (John>Mike){
+  winner = 'John';
+  winnerAvgScore=John;
+}else if(John === Mike){
+  winner = 'John and Mike';
+  winnerAvgScore = John;
+}
+else{
+  winner = 'Mike';
+  winnerAvgScore = Mike;
+}
+
+var Mary = (97+134+105)/3;
+if(winnerAvgScore<Mary){
+  winner = 'Mary';
+  winnerAvgScore = Mary;
+}
+else if(winnerAvgScore ===Mary && winner ==='John and Mike'){
+  winner = 'all of them';
+}
+else if (winnerAvgScore === Mary && winner==='Mike'){
+  winner = 'Mary and Mike';
+
+}
+else if (winnerAvgScore === Mary && winner === 'John'){
+  winner = 'Mary and John'
+}
+console.log('winner is '+winner+' and  averge score is '+ winnerAvgScore);
+
+function calculateAge(birthyear){
+  return 2020-birthyear;
+}
+function yearsUntilRetirement(year,firstName){
+  var age = calculateAge(year);
+  var retirement = 65-age; //은퇴할 나이
+  console.log(firstName+" retires in "+retirement+"years.");
+
+
+}
+
+yearsUntilRetirement(1996,'John');
+
+//Function declaration
+// function whatDoYouDo(job,firstName){}
+
+
+//Function expression  함수를 변수로 설정가능
+var whatDoYouDo = function(job,firstName) {
+  switch(job){
+    case 'teacher':
+      return firstName+ ' teaches kids how to code'; //return 을 사용하므로 break는 따로 필요없다.
+    case 'driver' :
+      return firstName+ ' drives a cab in Lisbon';
+
+    case 'designer':
+      return firstName+ ' designs beautiful websites';
+  
+    default:
+      return firstName+ ' does something else';
+      
+  }
+}
+console.log( whatDoYouDo('teacher', 'John') );
+console.log( whatDoYouDo('designer', 'Jane') );
+console.log( whatDoYouDo('retired', 'Mark') );
+
+//statement 와 expression의 차이
+//And really, anything that we do,
+// again, that produces a result is an expression.
+//값을 만들어 내는 것은 expression : 3+5 또는 if문 () 안에 들어가는 식
+//statement는 while문 같은 상태  즉각적인 값을 만들어내지 않는다.
+
+// Okay, so it doesn't really return anything,
+// but this 23 here simply comes from this console.log here,
+// but the statement itself, it does not return anything.
+// So, it's just really this statement
+// that doesn't produce a result, and so that's the difference
+// between expressions and statement, all right?
+// So, coming back to functions here,
+// we learned that function expressions produce
+// an immediate result, while function declarations do not.
+// And this will actually be very important
