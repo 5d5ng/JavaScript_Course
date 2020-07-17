@@ -195,76 +195,76 @@ HINT: you will need the && operator to take the decision. If you can't solve thi
 
 GOOD LUCK 😀
 */
-var John,Mike,Mary;
-John = (89+120+103)/3;
-Mike = (116+94+123)/3;
+// var John,Mike,Mary;
+// John = (89+120+103)/3;
+// Mike = (116+94+123)/3;
 
-var winner,winnerAvgScore;
-if (John>Mike){
-  winner = 'John';
-  winnerAvgScore=John;
-}else if(John === Mike){
-  winner = 'John and Mike';
-  winnerAvgScore = John;
-}
-else{
-  winner = 'Mike';
-  winnerAvgScore = Mike;
-}
+// var winner,winnerAvgScore;
+// if (John>Mike){
+//   winner = 'John';
+//   winnerAvgScore=John;
+// }else if(John === Mike){
+//   winner = 'John and Mike';
+//   winnerAvgScore = John;
+// }
+// else{
+//   winner = 'Mike';
+//   winnerAvgScore = Mike;
+// }
 
-var Mary = (97+134+105)/3;
-if(winnerAvgScore<Mary){
-  winner = 'Mary';
-  winnerAvgScore = Mary;
-}
-else if(winnerAvgScore ===Mary && winner ==='John and Mike'){
-  winner = 'all of them';
-}
-else if (winnerAvgScore === Mary && winner==='Mike'){
-  winner = 'Mary and Mike';
+// var Mary = (97+134+105)/3;
+// if(winnerAvgScore<Mary){
+//   winner = 'Mary';
+//   winnerAvgScore = Mary;
+// }
+// else if(winnerAvgScore ===Mary && winner ==='John and Mike'){
+//   winner = 'all of them';
+// }
+// else if (winnerAvgScore === Mary && winner==='Mike'){
+//   winner = 'Mary and Mike';
 
-}
-else if (winnerAvgScore === Mary && winner === 'John'){
-  winner = 'Mary and John'
-}
-console.log('winner is '+winner+' and  averge score is '+ winnerAvgScore);
+// }
+// else if (winnerAvgScore === Mary && winner === 'John'){
+//   winner = 'Mary and John'
+// }
+// console.log('winner is '+winner+' and  averge score is '+ winnerAvgScore);
 
-function calculateAge(birthyear){
-  return 2020-birthyear;
-}
-function yearsUntilRetirement(year,firstName){
-  var age = calculateAge(year);
-  var retirement = 65-age; //은퇴할 나이
-  console.log(firstName+" retires in "+retirement+"years.");
-
-
-}
-
-yearsUntilRetirement(1996,'John');
-
-//Function declaration
-// function whatDoYouDo(job,firstName){}
+// function calculateAge(birthyear){
+//   return 2020-birthyear;
+// }
+// function yearsUntilRetirement(year,firstName){
+//   var age = calculateAge(year);
+//   var retirement = 65-age; //은퇴할 나이
+//   console.log(firstName+" retires in "+retirement+"years.");
 
 
-//Function expression  함수를 변수로 설정가능
-var whatDoYouDo = function(job,firstName) {
-  switch(job){
-    case 'teacher':
-      return firstName+ ' teaches kids how to code'; //return 을 사용하므로 break는 따로 필요없다.
-    case 'driver' :
-      return firstName+ ' drives a cab in Lisbon';
+// }
 
-    case 'designer':
-      return firstName+ ' designs beautiful websites';
+// yearsUntilRetirement(1996,'John');
+
+// //Function declaration
+// // function whatDoYouDo(job,firstName){}
+
+
+// //Function expression  함수를 변수로 설정가능
+// var whatDoYouDo = function(job,firstName) {
+//   switch(job){
+//     case 'teacher':
+//       return firstName+ ' teaches kids how to code'; //return 을 사용하므로 break는 따로 필요없다.
+//     case 'driver' :
+//       return firstName+ ' drives a cab in Lisbon';
+
+//     case 'designer':
+//       return firstName+ ' designs beautiful websites';
   
-    default:
-      return firstName+ ' does something else';
+//     default:
+//       return firstName+ ' does something else';
       
-  }
-}
-console.log( whatDoYouDo('teacher', 'John') );
-console.log( whatDoYouDo('designer', 'Jane') );
-console.log( whatDoYouDo('retired', 'Mark') );
+//   }
+// }
+// console.log( whatDoYouDo('teacher', 'John') );
+// console.log( whatDoYouDo('designer', 'Jane') );
+// console.log( whatDoYouDo('retired', 'Mark') );
 
 //statement 와 expression의 차이
 //And really, anything that we do,
@@ -282,3 +282,120 @@ console.log( whatDoYouDo('retired', 'Mark') );
 // we learned that function expressions produce
 // an immediate result, while function declarations do not.
 // And this will actually be very important
+
+
+
+var names = ['John','Mark','Jane'];
+var years = new Array(1990,1969,1949);
+console.log(names[0]);
+console.log(names.length);
+
+names[1] = 'Ben';
+console.log(names);
+
+name[5] = 'Mary';
+//Different data types
+var john = ['John','Smith',1990,'teacher',false];
+
+john.push('blue'); // 끝 부분에 삽입
+john.unshift('Mr.'); //첫부분에 삽입
+john.pop(); //끝부분 삭제
+john.shift(); // 첫 부분 삭제
+console.log(john);
+
+console.log( john.indexOf(1990)); // indexOf()찾는 자료가 없다면 -1을 리턴한다.
+
+var isDesigner = john.indexOf('designer') === -1 ? 'John is not a designer' : 'John is a desinger'
+console.log(isDesigner);
+
+
+
+/*
+John and his family went on a holiday and went to 3 different restaurants. The bills were $124, $48 and $268.
+
+To tip the waiter a fair amount, John created a simple tip calculator 
+(as a function). He likes to tip 20% of the bill when the bill is less than $50, 15% when the bill is between $50 and $200, and
+ 10% if the bill is more than $200.
+
+In the end, John would like to have 2 arrays:
+1) Containing all three tips (one for each bill)
+2) Containing all three final paid amounts (bill + tip).
+
+*/
+
+//Object 인덱스가 아닌 데이터 명으로 접근하고싶을때 key-val 
+
+// var john = {  //firstname이 key ''john' 이 value
+//   firstname : 'John',
+//   lastName:'Smith',
+//   birthYear:1990,
+//   family:['Jane','Mark','Bob','Emily'],
+//   job:'teacher',
+//   isMarried: false
+// };
+
+// console.log(john.firstname);
+// console.log(john['lastName']);
+// var x ='birthYear';
+// console.log(john[x]);
+
+// john.job = 'designer';
+// john['isMarried'] = true;
+// console.log(john);
+
+// var jane = new Object();
+// jane.name = 'Jane';
+// jane.birthYear = 1989;
+// jane['lastName'] = 'Smith';
+// console.log(jane);
+
+//Object and method
+
+var john = {  //firstname이 key ''john' 이 value
+  firstname : 'John',
+  lastName:'Smith',
+  birthYear:1990,
+  family:['Jane','Mark','Bob','Emily'],
+  job:'teacher',
+  isMarried: false,
+  calcAge:function(birthYear){ //method 
+    this.age =  2020-this.birthYear; // "This" means this object, the present, the current object
+    //this를 이용하면 age 변수가 자동으로 만들어진다.
+  }
+};
+console.log(john.calcAge(1990));
+console.log(john);
+//arrray또한 push,pop을 가진것처럼 method 가 존재한다 즉 array가 object라는 것을 알수있다.
+
+var Mark ={
+  Name:'Mark',
+  mass: 92,
+  height:1.95,
+  calBMI: function(){
+    this.BMI = this.mass/(this.height**2);
+    return this.BMI;
+  }
+  
+}
+var John ={
+  Name:'John',
+  mass: 78,
+  height:1.69,
+  calBMI: function(){
+    this.BMI = this.mass/(this.height**2);
+    return this.BMI;
+  }
+}
+Mark.calBMI();
+John.calBMI();
+if(Mark.BMI>John.BMI){
+  console.log(Mark.name+' is higher and his BMI is '+Mark.BMI);
+}
+else if(Mark.BMI===John.BMI){
+  console.log('they both have same point.'+Mark.BMI);
+}
+else{
+  console.log(John.name+' is higher and his BMI is '+John.BMI);
+
+}
+console.log(Mark);
