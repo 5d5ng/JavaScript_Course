@@ -8,6 +8,7 @@ GAME RULES:
 - The first player to reach 100 points on GLOBAL score wins the game
 
 */
+
 var scores, roundScore, activePlayer, dice;
 
 scores = [0, 0];
@@ -74,20 +75,7 @@ document.querySelector(".btn-roll").addEventListener("click", function () {
   } else {
     //1이나오는 경우
     //turn over Next player
-
-    document.querySelector("#current-" + activePlayer).textContent = '0'; //턴 옮기기전에 0으로 변경
-
-    activePlayer === 0 ? (activePlayer = 1) : (activePlayer = 0); // 삼항연산자
-    roundScore = 0; //현재점수 초기화
-
-    // document.querySelector('.player-0-panel').classList.remove('active'); // active 클래스를 .player-0-panel요소에서 제거함
-    // document.querySelector('.player-1-panel').classList.add('active');// active 클래스를 .player-1-panel요소에서 추기함
-
-    document.querySelector('.player-0-panel').classList.toggle('active'); 
-    document.querySelector('.player-1-panel').classList.toggle('active');
-    //toggle은 존재하면 제거 , 존재하지않으면 추가
-
-    document.querySelector('.dice').style.display = 'none'; //턴이 종료될떄 다시 주사위 이미지를 숨겨줌
+    nextPlayer();
   }
 });
 
@@ -96,3 +84,42 @@ document.querySelector(".btn-roll").addEventListener("click", function () {
 // So, this only works for IDs,
 // but is faster than querySelector.
 // So, sometimes, when we have IDs,
+
+document.querySelector(".btn-hold").addEventListener("click", function () {
+  // Add Current score to Global score
+  scores[activePlayer] += roundScore;
+
+  //Update the UI
+  document.querySelector('#score-'+activePlayer).textContent = scores[activePlayer];
+  
+  //Check if player won the game
+  if(scores[activePlayer]>=100){
+    document.querySelector('#name-'+activePlayer).textContent = 'Winner!';
+    document.querySelector('.dice').style.display = 'none'; //승부가 나서 주사위 없애기
+    document.querySelector('.player-'+activePlayer+'-panel').classList.add('winner');
+    document.querySelector('.player-'+activePlayer+'-panel').classList.remove('active');
+    
+
+  }else{
+  //Role Dice 버튼을 눌렀을 떄 0이 나올 경우와 똑같이 플레이어를 변경해주어야함으로 함수로 만들어서 코드 중복성제거
+  nextPlayer();
+  }
+
+
+
+});
+
+function nextPlayer(){
+  document.querySelector("#current-" + activePlayer).textContent = "0"; //턴 옮기기전에 0으로 변경
+  activePlayer === 0 ? (activePlayer = 1) : (activePlayer = 0); // 삼항연산자
+  roundScore = 0; //현재점수 초기화
+
+  // document.querySelector('.player-0-panel').classList.remove('active'); // active 클래스를 .player-0-panel요소에서 제거함
+  // document.querySelector('.player-1-panel').classList.add('active');// active 클래스를 .player-1-panel요소에서 추기함
+
+  document.querySelector(".player-0-panel").classList.toggle("active");
+  document.querySelector(".player-1-panel").classList.toggle("active");
+  //toggle은 존재하면 제거 , 존재하지않으면 추가
+
+  document.querySelector(".dice").style.display = "none"; //턴이 종료될떄 다시 주사위 이미지를 숨겨줌
+}
