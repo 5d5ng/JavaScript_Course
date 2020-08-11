@@ -1,6 +1,4 @@
-/**********************************************
-*** GENERAL
-**********************************************/
+
 
 .goal-score{
     position: absolute;
@@ -12,7 +10,7 @@
     font-family: 'Lato';
     text-align: center;
     padding:10px;
-    width:160px;
+    width:260px;
     text-transform: uppercase;
 }
 .goal-score:focus{outline:none;}
